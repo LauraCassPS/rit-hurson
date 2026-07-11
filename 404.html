@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | Divorce With Dignity</title>
+<meta name="robots" content="noindex, follow">
+
+<link rel="icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400&amp;family=Karla:wght@400;500&amp;display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --off-white: #FBFBF7;
+    --navy: #46608B;
+    --rust-rose: #B16870;
+    --btn-fill: #9F5D64;
+    --text-body: #2A2A28;
+    --text-muted: #5B5B56;
+    --font-heading: 'Bodoni Moda', serif;
+    --font-body: 'Karla', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text-body);
+    background: var(--off-white);
+    padding: 1.5rem;
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+
+  .not-found {
+    max-width: 480px;
+    text-align: center;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    color: var(--navy);
+    margin: 0 0 1rem 0;
+  }
+
+  p {
+    color: var(--text-muted);
+    margin: 0 0 2rem 0;
+  }
+
+  a:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--rust-rose);
+    outline-offset: 3px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    min-height: 44px;
+    border: 1px solid var(--rust-rose);
+    background: var(--btn-fill);
+    color: var(--off-white);
+  }
+
+  .btn:hover {
+    background: #8D5359;
+    border-color: #8D5359;
+  }
+</style>
+</head>
+<body>
+
+  <div class="not-found">
+    <h1>This page isn't here.</h1>
+    <p>The page you're looking for may have moved or no longer exists. Let's get you back to somewhere useful.</p>
+    <a href="/index.html" class="btn">Back to the homepage</a>
+  </div>
+
+</body>
+</html>
