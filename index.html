@@ -469,47 +469,24 @@
     color: var(--off-white);
   }
 
-  /* PLACEHOLDER: replace this background-image with Rita's hero photograph.
-     Shown here as a cream/beige placeholder so it's visibly a stand-in for
-     a photo rather than reading as an intentional flat navy panel. The
-     navy overlay on top is the real, final treatment per the brief and
-     should stay once the photo is dropped in. */
-  .hero-photo-placeholder {
+  .hero-photo {
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      var(--beige),
-      var(--beige) 40px,
-      #f0ebe3 40px,
-      #f0ebe3 80px
-    );
-  }
-
-  .hero-photo-placeholder::after {
-    content: "Hero photograph placeholder — replace before launch";
-    position: absolute;
-    top: 1.25rem;
-    left: 1.25rem;
-    background: var(--off-white);
-    color: var(--navy);
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: 0.75rem;
-    letter-spacing: 0.04em;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid rgba(70, 96, 139, 0.2);
+    background: url("images/divorce-mentor-mediator.jpg") center center / cover no-repeat;
   }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
-    /* PLACEHOLDER OPACITY: lowered so the cream placeholder pattern is
-       actually visible while there's no real photo behind it. Once
-       Rita's hero photograph replaces .hero-photo-placeholder, raise
-       this back to the brief's spec: rgba(70, 96, 139, 0.90) or higher,
-       needed for the white Prata H1 to stay legible over a photo. */
-    background: rgba(70, 96, 139, 0.35);
+    /* Gradient navy overlay: strongest at the bottom where the white Prata
+       H1 and body copy sit (legibility), easing toward the top so the
+       photograph's sky and figures still read through. */
+    background: linear-gradient(
+      to top,
+      rgba(70, 96, 139, 0.92) 0%,
+      rgba(70, 96, 139, 0.82) 45%,
+      rgba(70, 96, 139, 0.55) 100%
+    );
   }
 
   .hero-inner {
@@ -519,30 +496,20 @@
     max-width: 760px;
   }
 
-  /* PLACEHOLDER COLOUR: navy instead of sage-2, so it stays legible
-     against the lightened placeholder overlay below. Once a real photo
-     is in and .hero-overlay is back to near-solid navy, restore
-     color: var(--sage-2); */
   .hero .eyebrow {
-    color: var(--navy);
+    color: var(--sage-2);
   }
 
-  /* PLACEHOLDER COLOUR: navy instead of off-white, for the same reason.
-     Restore color: var(--off-white); once the real photo + full-opacity
-     overlay are in place. */
   .hero h1 {
-    color: var(--navy);
+    color: var(--off-white);
     margin-top: 1rem;
   }
 
-  /* PLACEHOLDER COLOUR: navy instead of off-white/92%, for the same
-     reason. Restore color: rgba(251, 251, 247, 0.92); once the real
-     photo + full-opacity overlay are in place. */
   .hero-sub {
     font-size: 1.125rem;
     max-width: 560px;
     margin-top: 1.5rem;
-    color: var(--navy);
+    color: rgba(251, 251, 247, 0.92);
   }
 
   .hero .btn {
@@ -558,18 +525,12 @@
   }
 
   .intro-photo {
-    /* PLACEHOLDER: replace with portrait photo of Rita, warm, professional, not corporate-stiff */
-    background: var(--beige);
-    border: 1px solid rgba(70, 96, 139, 0.15);
-    aspect-ratio: 4 / 5;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 0.8125rem;
-    text-align: center;
-    padding: 1rem;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
   }
 
   .intro-text h2 {
@@ -743,11 +704,19 @@
   }
 
   .split-photo {
-    /* PLACEHOLDER: replace with calm environmental image (window light, interior, hands, paper on table) */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  /* Placeholder box styling for split-photo slots that don't yet have a
+     real image (e.g. the Recognition section environmental photo). */
+  .split-photo--placeholder {
     background: var(--beige);
     border: 1px solid rgba(70, 96, 139, 0.15);
-    aspect-ratio: 4 / 3;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1889,8 +1858,7 @@
 <main id="main-content">
 
   <section class="hero" id="top" aria-labelledby="hero-heading">
-    <!-- PLACEHOLDER: replace with Rita's hero photograph (full-bleed background image) -->
-    <div class="hero-photo-placeholder" aria-hidden="true"></div>
+    <div class="hero-photo" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero-inner">
@@ -1904,8 +1872,7 @@
 
   <section id="introduction" aria-labelledby="introduction-heading">
     <div class="wrap intro-layout">
-      <!-- PLACEHOLDER: replace with portrait photo of Rita, warm, professional, not corporate-stiff -->
-      <div class="intro-photo" role="img" aria-label="Portrait photo of Rita Hurson, placeholder">Photo of Rita</div>
+      <img class="intro-photo" src="images/rita-hurson-divorce-mentor.jpg" alt="Rita Hurson, Family Mediator and Life Coach, smiling" width="1254" height="1254" loading="lazy" decoding="async">
       <div class="intro-text">
         <h2 id="introduction-heading">I'm Rita Hurson.</h2>
         <p>I spent years working as a Family Mediator before setting up Divorce With Dignity, and I saw the same thing happen again and again. People who were entirely capable, stuck between what their solicitor was telling them and what they actually needed to do with that information. So I set up a practice that helps with exactly that.</p>
@@ -1964,7 +1931,7 @@
   <section id="recognition" aria-labelledby="recognition-heading">
     <div class="wrap split">
       <!-- PLACEHOLDER: replace with calm environmental image (window light, interior, hands, paper on table). Nothing posed or emotional. -->
-      <div class="split-photo" role="img" aria-label="Calm environmental photo, placeholder">Environmental photo</div>
+      <img class="split-photo" src="images/divorce-with-dignity-ireland.jpg" alt="A calm interior with a navy journal and pen, a mug of tea and an armchair by a window" width="1536" height="1024" loading="lazy" decoding="async">
       <div class="split-text">
         <h2 id="recognition-heading">You know how to handle things. This is just unfamiliar territory.</h2>
         <p>You're used to managing complexity, work, family, a full life. Separation and divorce bring a different kind of complexity: legal processes you've never had reason to learn, financial decisions with long-term consequences, and a lot of advice coming at you from different directions, often in language that assumes you already know what it means.</p>
@@ -2183,8 +2150,7 @@
   <section id="about-rita" aria-labelledby="about-rita-heading">
     <div class="wrap split split-reverse">
       <div class="about-photo-col">
-        <!-- PLACEHOLDER: replace with second, different photo of Rita (different pose and setting from Brief Introduction photo) -->
-        <div class="split-photo" role="img" aria-label="Second portrait photo of Rita Hurson, placeholder">Photo of Rita</div>
+        <img class="split-photo" src="images/rita-hurson-divorce.jpg" alt="Rita Hurson in conversation with a client across a table" width="1254" height="1254" loading="lazy" decoding="async" style="object-position: center 30%;">
         <div class="credentials-box">
           Qualified Family Mediator and accredited Life Coach, trained in mediation, conflict resolution, conflict coaching, psychology, counselling and mentoring. Member of the Mediators Institute of Ireland and the International Coach Federation, working to their professional codes of ethics.
         </div>
